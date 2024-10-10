@@ -6,19 +6,19 @@ public class Broken {
     private String name;
     private int sizeOfEmpty = 10;
 
-   public void broken() {
+    public void broken() {
     }
 
-   public void echo() {
+    public void echo() {
     }
 
-  public void media(Object obj) {
+    public void media(Object obj) {
         if (obj != null) {
             System.out.println(obj);
         }
     }
 
-   public void method(int a, int b, int c) {
+    public void method(int a, int b, int c) {
     }
 }
 
