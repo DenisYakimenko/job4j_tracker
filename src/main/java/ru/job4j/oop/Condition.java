@@ -16,8 +16,6 @@ public class Condition {
 
     public static void main(String[] args) {
         Condition finder = new Condition();
-
-        // Примеры использования
         System.out.println("Max of 2 numbers: " + finder.max(3, 7));
         System.out.println("Max of 3 numbers: " + finder.max(3, 7, 5));
         System.out.println("Max of 4 numbers: " + finder.max(3, 7, 5, 9));
