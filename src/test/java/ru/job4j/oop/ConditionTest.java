@@ -7,20 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConditionTest {
 
     @Test
-    public void elsea3andb7max7() {
+    public void ifa3andb7max7() {
         Condition finder = new Condition();
         assertEquals(7, finder.max(3, 7));
 
     }
 
     @Test
-    public void elsea3andb7andc5max7() {
+    public void ifa3andb7andc5max7() {
         Condition finder = new Condition();
         assertEquals(7, finder.max(3, 7, 5));
     }
 
     @Test
-    public void elsea3andb7andc5andd9max9() {
+    public void ifa3andb7andc5andd9max9() {
         Condition finder = new Condition();
         assertEquals(9, finder.max(3, 7, 5, 9));
     }
