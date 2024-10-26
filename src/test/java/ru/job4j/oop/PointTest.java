@@ -29,4 +29,14 @@ class PointTest {
         double expectedDistance = 5.66;
         assertEquals(expectedDistance, a.distance(b), 0.01);
     }
+
+    @Test
+    void whenPoint010and000Then1(){
+        Point c = new Point(0, 1, 0);
+        Point d = new Point(0, 0, 0);
+        double expectedDistance = 1.0;
+        assertEquals(expectedDistance, c.distance(d), 0.01);
+    }
+
+
 }
