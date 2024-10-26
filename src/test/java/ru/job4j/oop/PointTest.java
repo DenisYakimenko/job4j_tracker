@@ -31,7 +31,7 @@ class PointTest {
     }
 
     @Test
-    void whenPoint010and000Then1(){
+    void whenPoint010and000Then1() {
         Point c = new Point(0, 1, 0);
         Point d = new Point(0, 0, 0);
         double expectedDistance = 1.0;
