@@ -37,6 +37,4 @@ class PointTest {
         double expectedDistance = 1.0;
         assertEquals(expectedDistance, c.distance(d), 0.01);
     }
-
-
 }
