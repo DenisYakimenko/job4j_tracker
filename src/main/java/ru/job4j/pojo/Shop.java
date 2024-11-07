@@ -16,14 +16,16 @@ public class Shop {
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
-        for (int i = 0; i < products.length; i++) {
-            Product product = products[i];
+        products[3] = new Product("Fish", 3);
+        products[4] = new Product("Fruit", 8);
+        products = ShopDrop.delete(products, 1);
+        for (Product product : products) {
             if (product != null) {
                 System.out.println(product.getName());
             }
         }
-        int nullIndex = indexOfNull(products);
-        System.out.println("Первый индекс пустой ячейки: " + nullIndex);
+
     }
+
 }
 
