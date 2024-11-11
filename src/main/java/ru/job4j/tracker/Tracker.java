@@ -60,17 +60,11 @@ public class Tracker {
     }
 
     public void delete(int id) {
-        if (id <= 0) {
-            System.out.println("ID должен быть положительным и не равным нулю");
-        }
         int index = indexOf(id);
-        if (index == -1) {
-            return;
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
         }
-        int start = index + 1;
-        int length = size - index - 1;
-        System.arraycopy(items, start, items, index, length);
-        items[size - 1] = null;
-        size--;
     }
 }
