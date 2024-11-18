@@ -12,7 +12,6 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-
             if (matches < 1 || matches > 3) {
                 System.out.println("Ошибка: введите число от 1 до 3.");
             } else if (matches > count) {
