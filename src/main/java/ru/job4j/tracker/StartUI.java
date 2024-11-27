@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -36,8 +37,8 @@ public class StartUI {
                 System.out.println(item);
             }
         } else {
-                System.out.println("Заявки с именем: " + name + " не найдены.");
-            }
+            System.out.println("Заявки с именем: " + name + " не найдены.");
+        }
     }
 
     public static void findItemById(Input input, Tracker tracker) {

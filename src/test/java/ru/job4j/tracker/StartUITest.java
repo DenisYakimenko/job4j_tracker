@@ -36,7 +36,7 @@ class StartUITest {
     }
 
     @Test
-    void whenDeleteItem(){
+    void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("Deleted item");
         tracker.add(item);
