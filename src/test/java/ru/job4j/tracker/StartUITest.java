@@ -13,7 +13,7 @@ class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input input = new MockInput(
-                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+                new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new ReplaceAction(output),
@@ -35,7 +35,7 @@ class StartUITest {
     }
 
     @Test
-    void whenExecuteFindAllActionThenOutputAllItems(){
+    void whenExecuteFindAllActionThenOutputAllItems() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
@@ -43,20 +43,20 @@ class StartUITest {
                 new FindAllAction(output),
                 new ExitAction(output)
         };
-        Input input = new MockInput(new String[] {"0", String.valueOf(one.getId()), "1"});
+        Input input = new MockInput(new String[]{"0", String.valueOf(one.getId()), "1"});
         new StartUI(output).init(input, tracker, actions);
 
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
-                + "0. Показать все заявки" + ln
-                + "1. Завершить программу" + ln
-                + "=== Вывод всех заявок ===" + ln
-                + one + ln
-                + "Меню:" + ln
-                + "0. Показать все заявки" + ln
-                + "1. Завершить программу" + ln
-                + "=== Завершение программы ===" + ln
+                        + "0. Показать все заявки" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Вывод всех заявок ===" + ln
+                        + one + ln
+                        + "Меню:" + ln
+                        + "0. Показать все заявки" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
         );
 
     }
@@ -70,24 +70,24 @@ class StartUITest {
                 new FindByNameAction(output),
                 new ExitAction(output)
         };
-        Input input = new MockInput(new String[] {"0", String.valueOf(one.getName()), "1"});
+        Input input = new MockInput(new String[]{"0", String.valueOf(one.getName()), "1"});
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
-                + "0. Показать заявки по имени" + ln
-                + "1. Завершить программу" + ln
-                + "=== Вывод заявок по имени ===" + ln
-                + one + ln
-                + "Меню:" + ln
-                + "0. Показать заявки по имени" + ln
-                + "1. Завершить программу" + ln
-                + "=== Завершение программы ===" + ln
-                );
+                        + "0. Показать заявки по имени" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Вывод заявок по имени ===" + ln
+                        + one + ln
+                        + "Меню:" + ln
+                        + "0. Показать заявки по имени" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Завершение программы ===" + ln
+        );
     }
 
     @Test
-void whenExecuteFindByIdActionThenOutputItemsById(){
+    void whenExecuteFindByIdActionThenOutputItemsById() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
@@ -95,7 +95,7 @@ void whenExecuteFindByIdActionThenOutputItemsById(){
                 new FindByIdAction(output),
                 new ExitAction(output)
         };
-        Input input = new MockInput(new String[] {"0", String.valueOf(one.getId()), "1"});
+        Input input = new MockInput(new String[]{"0", String.valueOf(one.getId()), "1"});
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
