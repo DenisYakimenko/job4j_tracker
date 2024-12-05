@@ -70,7 +70,7 @@ class StartUITest {
                 new FindByNameAction(output),
                 new ExitAction(output)
         };
-        Input input = new MockInput(new String[]{"0", String.valueOf(one.getName()), "1"});
+        Input input = new MockInput(new String[]{"0", one.getName(), "1"});
         new StartUI(output).init(input, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
