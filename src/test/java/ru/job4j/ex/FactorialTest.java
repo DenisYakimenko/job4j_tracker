@@ -19,7 +19,7 @@ class FactorialTest {
     }
 
     @Test
-    public void whenNumber5Then120(){
+    public void whenNumber5Then120() {
         Factorial factorial = new Factorial();
         int input = 5;
         int output = factorial.calc(input);
