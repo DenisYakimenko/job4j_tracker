@@ -30,10 +30,21 @@ class ValidateInputTest {
         Output output = new StubOutput();
         Input in = new MockInput(new String[]{"1", "2", "3", "4", "5"});
         ValidateInput input = new ValidateInput(output, in);
-        for (int expected : new int[]{1, 2, 3, 4, 5}) {
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected).isEqualTo(expected);
-        }
+        int selected1 = input.askInt("Enter menu:");
+        assertThat(selected1).isEqualTo(1);
+
+        int selected2 = input.askInt("Enter menu:");
+        assertThat(selected2).isEqualTo(2);
+
+        int selected3 = input.askInt("Enter menu:");
+        assertThat(selected3).isEqualTo(3);
+
+        int selected4 = input.askInt("Enter menu:");
+        assertThat(selected4).isEqualTo(4);
+
+        int selected5 = input.askInt("Enter menu:");
+        assertThat(selected5).isEqualTo(5);
+
     }
 
     @Test
