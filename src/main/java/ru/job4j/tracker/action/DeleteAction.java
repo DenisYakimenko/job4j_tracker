@@ -2,6 +2,7 @@ package ru.job4j.tracker.action;
 
 import ru.job4j.tracker.*;
 import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.item.Item;
 import ru.job4j.tracker.output.Output;
 
 public class DeleteAction implements UserAction {

@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Disabled;
+import ru.job4j.tracker.item.Item;
+import ru.job4j.tracker.item.ItemAscByName;
+import ru.job4j.tracker.item.ItemDescByName;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Disabled("Тесты отключены. Удалить аннотацию после реализации всех методов по заданию.")
 public class TrackerTest {
@@ -101,5 +107,29 @@ public class TrackerTest {
         tracker.add(item);
         tracker.delete(1000);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
+    }
+
+    @Test
+    public void whenItemsSortAscByName() {
+        Item test1 = new Item("t1");
+        Item test2 = new Item("t2");
+        Item test3 = new Item("t3");
+        Item test4 = new Item("t4");
+        List<Item> items = Arrays.asList(test2, test4, test3, test1);
+        items.sort(new ItemAscByName());
+        List<Item> expected = Arrays.asList(test1, test2, test3, test4);
+        assertThat(items).isEqualTo(expected);
+    }
+
+    @Test
+    public void whenItemsSortDescByName() {
+        Item test1 = new Item("t1");
+        Item test2 = new Item("t2");
+        Item test3 = new Item("t3");
+        Item test4 = new Item("t4");
+        List<Item> items = Arrays.asList(test2, test4, test3, test1);
+        items.sort(new ItemDescByName());
+        List<Item> expected = Arrays.asList(test4, test3, test2, test1);
+        assertThat(items).isEqualTo(expected);
     }
 }
