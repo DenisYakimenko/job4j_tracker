@@ -31,21 +31,21 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-        Map<String, Integer> subjectScores = new HashMap<>();
-        Map<String, Integer> subjectCounts = new HashMap<>();
+        Map<String, Integer> totalScores = new LinkedHashMap<>();
+        Map<String, Integer> subjectCount = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectScores.put(subject.name(), subjectScores.getOrDefault(subject.name(), 0)
-                        + subject.score());
-                subjectCounts.put(subject.name(), subjectCounts.getOrDefault(subject.name(), 0) + 1);
+                totalScores.merge(subject.name(), subject.score(), Integer::sum);
+                subjectCount.merge(subject.name(), 1, Integer::sum);
             }
         }
-        List<Label> result = new ArrayList<>();
-        for (String subject : subjectScores.keySet()) {
-            double average = (double) subjectScores.get(subject) / subjectCounts.get(subject);
-            result.add(new Label(subject, average));
+        ArrayList<Label> labels = new ArrayList<>();
+        for (String subjectName : totalScores.keySet()) {
+            double average = (double) totalScores.get(subjectName) / subjectCount.get(subjectName);
+            Label result = new Label(subjectName, average);
+            labels.add(result);
         }
-        return result;
+        return labels;
     }
 
     public static Label bestStudent(List<Pupil> pupils) {
@@ -65,15 +65,15 @@ public class AnalyzeByMap {
         Map<String, Integer> subjectScores = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectScores.put(subject.name(), subjectScores.getOrDefault(subject.name(), 0)
-                        + subject.score());
+                subjectScores.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
-        List<Label> subjectLabels = new ArrayList<>();
+        LinkedList<Label> labels = new LinkedList<>();
         for (Map.Entry<String, Integer> entry : subjectScores.entrySet()) {
-            subjectLabels.add(new Label(entry.getKey(), (double) entry.getValue()));
+            Label result = new Label(entry.getKey(), entry.getValue());
+            labels.add(result);
         }
-        subjectLabels.sort(Comparator.naturalOrder());
-        return subjectLabels.get(subjectLabels.size() - 1);
+        labels.sort(Comparator.naturalOrder());
+        return labels.getLast();
     }
 }
