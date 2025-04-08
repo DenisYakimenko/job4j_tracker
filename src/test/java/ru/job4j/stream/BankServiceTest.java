@@ -57,6 +57,4 @@ class BankServiceTest {
         Account result = new BankService(users).findByRequisite("123", "123456");
         assertThat(result).isNull();
     }
-
-
 }
